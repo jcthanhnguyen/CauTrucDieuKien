@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert your money</title>
+    <style>
+        td,
+        th {
+            width: 150px;
+            text-align: center;
+        }
+        
+        input {
+            width: ;
+            height: 20px;
+        }
+        
+        select {
+            width: 100px;
+            height: 20px;
+        }
+        
+        button {
+            color: white;
+            background-color: blueviolet;
+            border: 2px solid blue;
+            font-weight: bolder;
+            padding: 4px;
+            height: 25px;
+            width: 80px;
+            border-radius: 4px;
+        }
+        
+        p {
+            color: blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="number" id="amount">
+            </td>
+            <td>
+                <select name="country" id="from">
+                    <option value="VND">VietNam</option>
+                    <option value="USD">USD</option>
+                </select>
+            </td>
+            <td>
+                <select name="country" id="to">
+                    <option value="VND">VietNam</option>
+                    <option value="USD">USD</option>
+                </select>
+            </td>
+            <td>
+                <button type="button" onclick="convert();">Convert</button>
+            </td>
+        </tr>
+    </table>
+    <p id="result"> </p>
+
+    <script>
+        function cal(amount, rate) {
+            let result = amount * rate;
+            return result;
+        }
+
+        function convert() {
+            let amount = document.getElementById("amount");
+            let a = parseFloat(amount.value);
+            let from = document.getElementById('from');
+            let to = document.getElementById('to');
+            let f = String(from.value);
+            let t = String(to.value);
+            if (f == t) document.getElementById('result').innerHTML = `Result: ${a} ${t} `;
+            else if (f == 'VND' && t == 'USD') document.getElementById('result').innerHTML = `Result: ${cal(a,1/23450)} ${t} `;
+            else document.getElementById('result').innerHTML = `Result: ${cal(a,23450)} ${t} `;
+        }
+    </script>
+
+</body>
+
+</html>
