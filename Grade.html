@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính điểm khối D</title>
+    <style>
+        span {
+            font-size: large;
+        }
+        
+        input {
+            width: 60px;
+        }
+        
+        select {
+            width: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <p style="font-size: 25px;">Tính điểm ĐH khối D</p>
+    <table>
+        <tr>
+            <td><span>Môn Toán</span></td>
+            <td><input type="number" name="" id="math"></td>
+
+        </tr>
+        <tr>
+            <td><span>Môn Văn</span></td>
+            <td><input type="number" name="" id="lit"></td>
+
+        </tr>
+        <tr>
+            <td><span>Môn Anh</span></td>
+            <td><input type="number" name="" id="eng"></td>
+        </tr>
+        <tr>
+            <td><span>Khu vực</span></td>
+            <td><select name="kv" id="kv">
+        <option value="1">KV1</option>
+        <option value="2">KV2-NT</option>
+        <option value="3">KV2</option>
+        <option value="4">KV3</option>
+    </select></td>
+        </tr>
+    </table>
+
+
+
+
+
+    <br>
+
+
+
+    <button type="button" onclick="cal();">Tính điểm</button>
+    <p id="result" style="color: red; font-size: 25px;"> </p>
+
+
+
+    <script>
+        function cal() {
+            let math = document.getElementById("math");
+            let m = parseFloat(math.value);
+            let lit = document.getElementById("lit");
+            let l = parseFloat(lit.value);
+            let eng = document.getElementById("eng");
+            let e = parseFloat(eng.value);
+            let g = m + l + e;
+            let kv = document.getElementById("kv");
+            let k = kv.value;
+            switch (k) {
+                case "1":
+                    document.getElementById("result").innerHTML = `Tổng điểm ĐH khối D của bạn là ${g+0.75}`;
+                    break;
+                case "2":
+                    document.getElementById("result").innerHTML = `Tổng điểm ĐH khối D của bạn là ${g+0.5}`;
+                    break;
+                case "3":
+                    document.getElementById("result").innerHTML = `Tổng điểm ĐH khối D của bạn là ${g+0.25}`;
+                    break;
+                case "4":
+                    document.getElementById("result").innerHTML = `Tổng điểm ĐH khối D của bạn là ${g}`;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
